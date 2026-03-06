@@ -2,11 +2,12 @@ Source: libglu
 Section: graphics
 Priority: optional
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
-Standards-Version: 4.4.1
 Build-Depends:
- debhelper (>= 12),
+ debhelper-compat (= 13),
+ meson,
  pkg-config,
- libgl1-mesa-dev,
+ libglvnd-dev,
+Standards-Version: 4.6.0
 Vcs-Git: https://salsa.debian.org/xorg-team/lib/libglu.git
 Vcs-Browser: https://salsa.debian.org/xorg-team/lib/libglu
 
@@ -41,7 +42,8 @@ Architecture: any
 Multi-Arch: same
 Depends:
  libglu1-mesa (= ${binary:Version}),
- libgl1-mesa-dev | libgl-dev,
+ libgl-dev,
+ libopengl-dev,
  ${misc:Depends},
 Provides: libglu-dev, xlibmesa-glu-dev
 Conflicts: mesag-dev (<< 5.0.0-1), mesa-glide2-dev (<< 5.0.0-1), mesag3+ggi-dev (<< 5.0.0-1), xlibmesa-dev
