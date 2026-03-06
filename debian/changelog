@@ -1,3 +1,23 @@
+libglu (9.0.2-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * control: Let libglu1-mesa-dev depend on libopengl-dev so that opengl.pc
+    referenced by our glu.pc is available too (closes: #1009731).
+
+ -- Micha Lenk <micha@debian.org>  Sat, 15 Oct 2022 23:23:58 +0200
+
+libglu (9.0.2-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Use secure copyright file specification URI.
+  * control: Migrate to libgl-dev.
+  * watch: Updated.
+  * control, rules: Migrate to debhelper-compat, bump to 13.
+  * copyright, install: glu_mangle.h is gone.
+  * control, rules: Build with meson, add support for glvnd.
+
+ -- Timo Aaltonen <tjaalton@debian.org>  Fri, 04 Mar 2022 16:49:49 +0200
+
 libglu (9.0.1-1) unstable; urgency=medium
 
   * New upstream release. (Closes: #944753)

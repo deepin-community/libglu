@@ -2,9 +2,6 @@
 
 DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
-override_dh_auto_configure:
-	dh_auto_configure -- --disable-silent-rules
-
 override_dh_clean:
 	for file in debian/*.in; do rm -f $${file%%.in}; done
 	dh_clean
@@ -21,11 +18,9 @@ override_dh_install:
 
 	dh_install
 
-override_dh_missing:
-	dh_missing --fail-missing
-
 %:
-	dh $@ --builddirectory=build/
+	dh $@ --builddirectory=build/ \
+		--buildsystem=meson
 
 gentarball: SOURCE=libglu
 gentarball: UV=$(shell dpkg-parsechangelog|awk '/^Version:/ {print $$2}'|sed 's/-.*$$//')
